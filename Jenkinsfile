@@ -37,7 +37,7 @@ docker push 172.17.0.1:5000/mysiteweb:latest '''
     stage('Launch Web Site') {
       steps {
         sh '''# Run docker website
-docker run --name mywebsite -d -p 80:80 172.17.0.1:5000/mysiteweb:latest'''
+docker run --name mywebsite -d -p 80:80 registry.me:5000/mysiteweb:latest'''
       }
     }
 
