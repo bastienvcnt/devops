@@ -36,7 +36,11 @@ docker push registry.me:5000/mysiteweb:latest'''
 
     stage('Launch Web Site') {
       steps {
-        sh '''# Run docker website
+        sh '''# Stop docker website
+docker stop mywebsite
+# Delete container
+docker container prune
+# Run docker website
 docker run --name mywebsite -d -p 80:80 registry.me:5000/mysiteweb:latest'''
       }
     }
