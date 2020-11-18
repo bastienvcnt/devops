@@ -39,7 +39,7 @@ docker push registry.me:5000/mysiteweb:latest'''
         sh '''# Stop docker website
 docker stop mywebsite
 # Delete container
-docker container prune
+docker container prune -f
 # Run docker website
 docker run --name mywebsite -d -p 80:80 registry.me:5000/mysiteweb:latest'''
       }
