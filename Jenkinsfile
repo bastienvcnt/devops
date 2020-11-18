@@ -22,7 +22,13 @@ cat index.html'''
 
     stage('Docker image') {
       steps {
-        sh '''# Build Docker Image 
+        sh '''# Stop docker website
+docker stop mywebsite
+
+# Delete container
+docker container prune -f
+
+# Build Docker Image 
 docker build -t mysiteweb:latest .
 '''
         sh '''# Del of old image
@@ -36,11 +42,7 @@ docker push registry.me:5000/mysiteweb:latest'''
 
     stage('Launch Web Site') {
       steps {
-        sh '''# Stop docker website
-docker stop mywebsite
-# Delete container
-docker container prune -f
-# Run docker website
+        sh '''# Run docker website
 docker run --name mywebsite -d -p 80:80 registry.me:5000/mysiteweb:latest'''
       }
     }
