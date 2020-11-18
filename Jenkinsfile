@@ -29,8 +29,8 @@ docker build -t mysiteweb:latest .
 docker rmi 172.17.0.1:5000/mysiteweb:latest
 
 # Upload to the local registry
-docker tag mysiteweb:latest 172.17.0.1:5000/mysiteweb:latest 
-docker push 172.17.0.1:5000/mysiteweb:latest '''
+docker tag mysiteweb:latest 192.168.1.21:5000/mysiteweb:latest 
+docker push 192.168.1.21:5000/mysiteweb:latest '''
       }
     }
 
